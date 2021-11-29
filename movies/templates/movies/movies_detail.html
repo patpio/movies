@@ -1,0 +1,26 @@
+{% extends "base.html"%}
+
+{% block title %}{{ movie }}{% endblock %}
+
+{% block content %}
+
+    <h2>***{{ movie }}***</h2>
+
+    <h3>Starred:</h3>
+    <ul>
+        {% for actor in actors %}
+        <li>{{ actor }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Genres:</h3>
+    <ul>
+        {% for category in categories %}
+        <li>{{ category }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'movies:update' movie.pk %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'movies:list' %}" class="btn btn-primary">Go back to list</a>
+
+{% endblock %}

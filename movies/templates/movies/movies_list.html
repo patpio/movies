@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+
+{% block title %}Movies List{% endblock %}
+
+{% block content %}
+    <a href="{% url 'movies:create' %}" class="btn btn-primary">Add new movie!</a>
+    <h2>Your movies:</h2>
+    <ul>
+        {% for movie in movies %}
+            <li>
+                <a href="{% url 'movies:detail' movie.pk %}" class="d-inline">{{ movie }}</a>
+                <form action="{% url 'movies:delete' movie.pk %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </li>
+        {% empty %}
+            <p>There are no movies added yet.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+body {
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: Azure;
+}
+
+div {
+    background-color: FloralWhite;
+    border-radius: 25px;
+    border: 2px solid;
+    padding: 10px;
+}
